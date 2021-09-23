@@ -36,6 +36,9 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
         if ("user".equals(username)) {
             return new JwtUser("user", passwordEncoder.encode("123456"), "user");
         }
+        if ("superadmin".equals(username)) {
+            return new JwtUser("superadmin", passwordEncoder.encode("123456"), "superadmin");
+        }
         return null;
     }
 }
