@@ -15,6 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**拦截请求进行token验证
+ *
+ * JwtHeadFilter 实现token校验的核心,这是自定义的过滤器,主要是请求通过过滤器时,会对其携带的token进行解析和校验
+ * 1.获取请求中携带的token
+ * 2.若没有获取到token则return,调交给接下来的过滤器链处理
+ * 3.若有token,但是校验失败,进行校验失败处理
+ * 4.若token校验成功,通过从token中获取的用户信息生成一个凭证(Authentication),并放置到SecurityContext
+ *
  * @author niXueChao
  * @date 2019/4/3 15:03.
  */

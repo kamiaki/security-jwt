@@ -8,6 +8,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**认证器
+ *
+ * JwtAuthenticationProvider 自定义的认证器,账号密码对不对等校验就是它干的,主要功能
+ * 1.首先规定自己支持校验那种凭证(Authentication)
+ * 2.进行用户校验,调用JwtUserDetailServiceImpl 查询当前用户(JwtUser),判断用户账号密码是否正确,用户是否过期,被锁定等等
+ * 3.若用户校验失败则抛异常给JwtLoginFilter,JwtLoginFilter捕获异常调用登录失败的处理类(LoginFailureHandler)
+ * 4.若用户校验成功,则生成一个已认证的凭证,也就是Authentication,对应本例的JwtLoginToken 并返回给JwtLoginFilter,JwtLoginFilter拿到凭证后调用登陆成功的处理类LoginSuccessHandler
+ *
  * @author niXueChao
  * @date 2019/4/2 15:59.
  */

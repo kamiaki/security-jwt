@@ -43,6 +43,7 @@ public class ApplicationConfigurerAdapter extends WebSecurityConfigurerAdapter {
         jwtLoginFilter.setAuthenticationFailureHandler(new LoginFailureHandler());
 
         //登录过滤器的授权提供者(就这么叫吧)
+        //调用JwtAuthenticationProvider进行登录校验
         JwtAuthenticationProvider provider = new JwtAuthenticationProvider();
         provider.setPasswordEncoder(passwordEncoder());
         provider.setUserDetailsService(jwtUserDetailService);
