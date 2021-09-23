@@ -21,7 +21,9 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    /** 模拟数据库查询
+    /**
+     * 模拟数据库查询
+     *
      * @param username
      * @return
      * @throws UsernameNotFoundException
@@ -29,10 +31,10 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         if ("admin".equals(username)) {
-            return new JwtUser("admin", passwordEncoder.encode("123456"));
+            return new JwtUser("admin", passwordEncoder.encode("123456"), "admin");
         }
         if ("user".equals(username)) {
-            return new JwtUser("user", passwordEncoder.encode("123456"));
+            return new JwtUser("user", passwordEncoder.encode("123456"), "user");
         }
         return null;
     }
