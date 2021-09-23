@@ -95,7 +95,9 @@ public class AccessDecisionService {
         List list2 = new ArrayList();
         list2.add(new SimpleGrantedAuthority("user"));
         // 判断权限
-        if (list.containsAll(authorities)) {
+        if (authorities == null || authorities.size() == 0){
+            return new ArrayList<>();
+        }else if (list.containsAll(authorities)) {
             return Arrays.asList("/innerMsg", "/secret");
         } else if (authorities.contains(new SimpleGrantedAuthority("user"))) {
             return Arrays.asList("/innerMsg");
