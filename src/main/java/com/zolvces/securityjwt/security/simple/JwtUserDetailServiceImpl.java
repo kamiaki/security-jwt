@@ -7,6 +7,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+//////////////////////////////////////////
+//////////////////////////////////////////
+/**
+ *  数据库拿用户权限 dao层的
+ */
+//////////////////////////////////////////
+//////////////////////////////////////////
+
 /**
  * @author niXueChao
  * @date 2019/4/8 11:26.

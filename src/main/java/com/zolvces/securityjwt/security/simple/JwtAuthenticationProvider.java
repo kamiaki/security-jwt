@@ -7,6 +7,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+//////////////////////////////////////////
+//////////////////////////////////////////
+/**
+ *  用户名密码校验器
+ */
+//////////////////////////////////////////
+//////////////////////////////////////////
+
 /**认证器
  *
  * JwtAuthenticationProvider 自定义的认证器,账号密码对不对等校验就是它干的,主要功能

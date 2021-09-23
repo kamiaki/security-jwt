@@ -6,6 +6,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.jwt.crypto.sign.RsaSigner;
 import org.springframework.security.jwt.crypto.sign.RsaVerifier;
 
+//////////////////////////////////////////
+//////////////////////////////////////////
+/**
+ *  公私钥匙 生成器，
+ *  私钥加密，公钥验签，
+ *  只有私钥能正确加密，其他人没有私钥没法加密
+ */
+//////////////////////////////////////////
+//////////////////////////////////////////
+
 /**
  * @author niXueChao
  * @date 2019/3/29 14:30.

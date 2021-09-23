@@ -14,6 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//////////////////////////////////////////
+//////////////////////////////////////////
+/**
+ *  验证token 报文头携带 Authentication
+ */
+//////////////////////////////////////////
+//////////////////////////////////////////
+
 /**拦截请求进行token验证
  *
  * JwtHeadFilter 实现token校验的核心,这是自定义的过滤器,主要是请求通过过滤器时,会对其携带的token进行解析和校验

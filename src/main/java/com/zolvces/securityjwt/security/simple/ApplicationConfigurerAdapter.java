@@ -13,6 +13,14 @@ import org.springframework.security.jwt.crypto.sign.RsaSigner;
 import org.springframework.security.jwt.crypto.sign.RsaVerifier;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+//////////////////////////////////////////
+//////////////////////////////////////////
+/**
+ *  spring security核心
+ */
+//////////////////////////////////////////
+//////////////////////////////////////////
+
 /**
  * @author niXueChao
  * @date 2019/4/2 22:58.

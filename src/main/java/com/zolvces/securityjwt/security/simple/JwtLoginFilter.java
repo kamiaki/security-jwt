@@ -10,6 +10,14 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//////////////////////////////////////////
+//////////////////////////////////////////
+/**
+ *  登录 获取用户名密码
+ */
+//////////////////////////////////////////
+//////////////////////////////////////////
+
 /**
  * JwtLoginFilter 自定义的登录过滤器,把它加到SpringSecurity的过滤链中,拦截登录请求它干的事有
  * 1 设置登录的url,请求的方式,其实也就是定义这个过滤器要拦截哪个请求
