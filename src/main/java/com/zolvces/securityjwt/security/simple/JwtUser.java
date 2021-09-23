@@ -24,6 +24,7 @@ import java.util.stream.Collectors;
 public class JwtUser implements UserDetails {
     private String username;
     private String password;
+    private Long exp;
     private List<SimpleGrantedAuthority> authorities;
 
     public JwtUser() {
@@ -80,5 +81,13 @@ public class JwtUser implements UserDetails {
 
     public void setAuthorities(List<SimpleGrantedAuthority> authorities) {
         this.authorities = authorities;
+    }
+
+    public Long getExp() {
+        return exp;
+    }
+
+    public void setExp(Long exp) {
+        this.exp = exp;
     }
 }

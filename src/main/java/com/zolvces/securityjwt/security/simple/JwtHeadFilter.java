@@ -1,6 +1,7 @@
 package com.zolvces.securityjwt.security.simple;
 
 import com.alibaba.fastjson.JSON;
+import org.joda.time.DateTime;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.jwt.Jwt;
 import org.springframework.security.jwt.JwtHelper;
@@ -17,7 +18,7 @@ import java.io.IOException;
 //////////////////////////////////////////
 //////////////////////////////////////////
 /**
- *  验证token 报文头携带 Authentication
+ * 验证token 报文头携带 Authentication
  */
 //////////////////////////////////////////
 //////////////////////////////////////////
@@ -39,8 +40,8 @@ public class JwtHeadFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token = request.getHeader("Authentication");
-        if (token==null || token.isEmpty()){
-            filterChain.doFilter(request,response);
+        if (token == null || token.isEmpty()) {
+            filterChain.doFilter(request, response);
             return;
         }
 
@@ -49,18 +50,22 @@ public class JwtHeadFilter extends OncePerRequestFilter {
             Jwt jwt = JwtHelper.decodeAndVerify(token, verifier);
             String claims = jwt.getClaims();
             user = JSON.parseObject(claims, JwtUser.class);
+            // 当前时刻再 过期时间戳之后
+            if (new DateTime().isAfter(user.getExp())) {
+                throw new RuntimeException("时间戳过期了");
+            }
             //todo: 可以在这里添加检查用户是否过期,冻结...
-        }catch (Exception e){
+        } catch (Exception e) {
             //这里也可以filterChain.doFilter(request,response)然后return,那最后就会调用
             //.exceptionHandling().authenticationEntryPoint,也就是本列中的"需要登陆"
             response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write("token 失效");
+            response.getWriter().write("token 失效" + e.getMessage());
             return;
         }
         JwtLoginToken jwtLoginToken = new JwtLoginToken(user, "", user.getAuthorities());
         jwtLoginToken.setDetails(new WebAuthenticationDetails(request));
         SecurityContextHolder.getContext().setAuthentication(jwtLoginToken);
-        filterChain.doFilter(request,response);
+        filterChain.doFilter(request, response);
     }
 
 
