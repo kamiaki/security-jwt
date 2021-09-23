@@ -23,6 +23,7 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
 
     /**
      * 模拟数据库查询
+     * 这里靠 传入的 passwordEncoder 确定校验密码的方式
      *
      * @param username
      * @return
