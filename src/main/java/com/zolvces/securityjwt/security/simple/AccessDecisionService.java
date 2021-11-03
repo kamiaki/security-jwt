@@ -40,7 +40,7 @@ public class AccessDecisionService {
     public boolean hasPermission(HttpServletRequest request, Authentication auth) {
 
         //不需要登录也能访问的(permitAll)
-        for (String url : Arrays.asList("/publicMsg", "/refreshToken")) {
+        for (String url : Arrays.asList("/publicMsg")) {
             if (antPathMatcher.match(url, request.getRequestURI())) {
                 return true;
             }
@@ -73,7 +73,7 @@ public class AccessDecisionService {
     private List<String> queryUrlByUserName(String userName) {
         switch (userName) {
             case "admin":
-                return Arrays.asList("/innerMsg", "/secret");
+                return Arrays.asList("/refreshToken", "/innerMsg", "/secret");
             case "user":
                 return Arrays.asList("/innerMsg");
             default:
@@ -95,10 +95,10 @@ public class AccessDecisionService {
         List list2 = new ArrayList();
         list2.add(new SimpleGrantedAuthority("user"));
         // 判断权限
-        if (authorities == null || authorities.size() == 0){
+        if (authorities == null || authorities.size() == 0) {
             return new ArrayList<>();
-        }else if (list.containsAll(authorities)) {
-            return Arrays.asList("/innerMsg", "/secret");
+        } else if (list.containsAll(authorities)) {
+            return Arrays.asList("/refreshToken", "/innerMsg", "/secret");
         } else if (authorities.contains(new SimpleGrantedAuthority("user"))) {
             return Arrays.asList("/innerMsg");
         } else {

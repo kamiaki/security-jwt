@@ -50,12 +50,12 @@ public class JwtHeadFilter extends OncePerRequestFilter {
             Jwt jwt = JwtHelper.decodeAndVerify(token, verifier);
             String claims = jwt.getClaims();
             user = JSON.parseObject(claims, JwtUser.class);
-            // 当前时刻再 过期时间戳之后 1 分钟过期
-            // 应该写一个刷新时间戳的方法
-            if (new DateTime().minusMinutes(1).isAfter(new DateTime(user.getExp()))) {
+            //todo: 可以在这里添加检查用户是否过期,冻结...
+            // 当前时刻再 过期时间戳之后 1 分钟过期, 并且不等于刷新时间戳方法
+            if (!"/refreshToken".equals(request.getRequestURI()) &&
+                    new DateTime().minusMinutes(1).isAfter(new DateTime(user.getExp()))) {
                 throw new RuntimeException("时间戳过期了");
             }
-            //todo: 可以在这里添加检查用户是否过期,冻结...
         } catch (Exception e) {
             //这里也可以filterChain.doFilter(request,response)然后return,那最后就会调用
             //.exceptionHandling().authenticationEntryPoint,也就是本列中的"需要登陆"
