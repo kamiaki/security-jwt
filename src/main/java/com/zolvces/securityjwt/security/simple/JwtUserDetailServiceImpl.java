@@ -41,6 +41,7 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        // 这里的内容会被添加 进 令牌， 但是 获取成map之后会有些错误
         if ("admin".equals(username)) {
             return new JwtUser("admin", passwordEncoder.encode("123456"), new Date().getTime(), "admin");
         }
