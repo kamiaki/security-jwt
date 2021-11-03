@@ -50,8 +50,9 @@ public class JwtHeadFilter extends OncePerRequestFilter {
             Jwt jwt = JwtHelper.decodeAndVerify(token, verifier);
             String claims = jwt.getClaims();
             user = JSON.parseObject(claims, JwtUser.class);
-            // 当前时刻再 过期时间戳之后
-            if (new DateTime().isAfter(user.getExp())) {
+            // 当前时刻再 过期时间戳之后 时间戳保留30分钟
+            // 应该写一个刷新时间戳的方法
+            if (new DateTime().minusMinutes(30).isAfter(new DateTime(user.getExp()))) {
                 throw new RuntimeException("时间戳过期了");
             }
             //todo: 可以在这里添加检查用户是否过期,冻结...

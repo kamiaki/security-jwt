@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 //////////////////////////////////////////
 //////////////////////////////////////////
 /**
@@ -40,13 +42,13 @@ public class JwtUserDetailServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         if ("admin".equals(username)) {
-            return new JwtUser("admin", passwordEncoder.encode("123456"), "admin");
+            return new JwtUser("admin", passwordEncoder.encode("123456"), new Date().getTime(), "admin");
         }
         if ("user".equals(username)) {
-            return new JwtUser("user", passwordEncoder.encode("123456"), "user");
+            return new JwtUser("user", passwordEncoder.encode("123456"), new Date().getTime(), "user");
         }
         if ("superadmin".equals(username)) {
-            return new JwtUser("superadmin", passwordEncoder.encode("123456"), "superadmin");
+            return new JwtUser("superadmin", passwordEncoder.encode("123456"), new Date().getTime(), "superadmin");
         }
         return null;
     }

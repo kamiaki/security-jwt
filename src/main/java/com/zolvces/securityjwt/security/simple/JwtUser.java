@@ -30,9 +30,10 @@ public class JwtUser implements UserDetails {
     public JwtUser() {
     }
 
-    public JwtUser(String username, String password, String ... roles) {
+    public JwtUser(String username, String password, Long exp, String ... roles) {
         this.username = username;
         this.password = password;
+        this.exp = exp;
         this.authorities= Arrays.stream(roles).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 

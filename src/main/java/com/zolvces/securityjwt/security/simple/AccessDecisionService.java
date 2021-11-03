@@ -40,7 +40,7 @@ public class AccessDecisionService {
     public boolean hasPermission(HttpServletRequest request, Authentication auth) {
 
         //不需要登录也能访问的(permitAll)
-        for (String url : Arrays.asList("/publicMsg")) {
+        for (String url : Arrays.asList("/publicMsg", "/refreshToken")) {
             if (antPathMatcher.match(url, request.getRequestURI())) {
                 return true;
             }

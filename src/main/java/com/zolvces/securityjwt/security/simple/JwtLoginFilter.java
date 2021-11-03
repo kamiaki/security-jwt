@@ -32,7 +32,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
      * 设置登录的url,请求的方式,其实也就是定义这个过滤器要拦截哪个请求
      */
     JwtLoginFilter() {
-        super(new AntPathRequestMatcher("/jwtLogin", "GET"));
+        super(new AntPathRequestMatcher("/jwtLogin", "POST"));
     }
 
 
