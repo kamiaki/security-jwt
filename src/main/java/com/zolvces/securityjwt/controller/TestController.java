@@ -61,8 +61,7 @@ public class TestController {
             Gson gson = new Gson();
             String userJsonStr = JSON.toJSONString(authentication.getPrincipal());
             Map hashMap = gson.fromJson(userJsonStr, Map.class);
-            // 这里要手写一下用户名密码校验器......
-
+            // 这里不用校验用户名和密码了，之前已经校验过了，不过要放行刷新token方法。
             // 刷新日期
             hashMap.put("exp", new DateTime().getMillis());
             String token = JwtHelper.encode(gson.toJson(hashMap), signer).getEncoded();
