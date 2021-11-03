@@ -38,7 +38,7 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         String userJsonStr = JSON.toJSONString(authentication.getPrincipal());
         Map hashMap = gson.fromJson(userJsonStr, Map.class);
         // 可以在这里改一些参数 时间重写一下 因为读出来的可能不对
-        hashMap.put("exp", new DateTime().getMillis());
+//        hashMap.put("exp", new DateTime().getMillis());
         String token = JwtHelper.encode(gson.toJson(hashMap), signer).getEncoded();
         //签发token
         response.getWriter().write("token="+token);
