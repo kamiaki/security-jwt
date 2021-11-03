@@ -61,8 +61,8 @@ public class TestController {
             Gson gson = new Gson();
             String userJsonStr = JSON.toJSONString(authentication.getPrincipal());
             Map hashMap = gson.fromJson(userJsonStr, Map.class);
-            // + 30分钟
-            hashMap.put("exp", new DateTime().plusMinutes(30).getMillis());
+            // 刷新日期
+            hashMap.put("exp", new DateTime().getMillis());
             String token = JwtHelper.encode(gson.toJson(hashMap), signer).getEncoded();
             //签发token
             return "token="+token;
