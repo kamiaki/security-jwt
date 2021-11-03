@@ -83,7 +83,7 @@ public class ApplicationConfigurerAdapter extends WebSecurityConfigurerAdapter {
                 })
                 .and()
                 .authorizeRequests()
-
+                // 过滤器会比权限先执行
                 .anyRequest().access("@accessDecisionService.hasPermission(request , authentication)")
                 .and()
                 //将授权提供者注册到授权管理器中(AuthenticationManager)
