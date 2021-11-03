@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4382ad6b-4c38-42b4-861a-ef29d332ac44",
+		"_postman_id": "e23fd060-fd32-4089-9668-26c8c3d2f459",
 		"name": "springsecurity jwt test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,10 +12,13 @@
 				"header": [
 					{
 						"key": "Authentication",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOltdLCJjcmVkZW50aWFsc05vbkV4cGlyZWQiOnRydWUsImVuYWJsZWQiOnRydWUsInBhc3N3b3JkIjoiJDJhJDEwJGpGTFNkdmt3dXFOODRHNnRyWW5sYmVwNEQxWS5pbS5CakFzZUEwUzlLZ1dsMWVUbHNCcWYuIiwidXNlcm5hbWUiOiJhZG1pbiJ9.R3W1leP2pR0Gj55oISp9yF7dX4K3B8V60zvLBoS2Ln83RjAedmx-sJEDqWb_zMKDlGOggEgIJAdlDX6NXLh85RByphjVAZ0yGkW_ceitENL-jL8U8lZbaRXHU9Dgt1rMG5wcRamAFBd3rSiVN_Seomb-Ht2ABjAUYBNf70PxI6s"
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6ImFkbWluIn1dLCJjcmVkZW50aWFsc05vbkV4cGlyZWQiOnRydWUsImVuYWJsZWQiOnRydWUsImV4cCI6MTYzNTkxMDEzMjg0NiwicGFzc3dvcmQiOiIkMmEkMTAkLjc5LzZXS3FsdVRzUVRoc0Y1R2JhT2w1S1NsOUNVemJkQXBHZHdLWmE5SUd2Y0VZWHRxV2UiLCJ1c2VybmFtZSI6ImFkbWluIn0.Q2zdBk0QzF8oBOmHgqF0dq_TXrF3mylsOevSP8y3wrg3T3TPx7xnbodXpkp3jYG26kpFajY9EidHBWyh_jVchTYl0PS5fl5epKvlAJdqIPgHByzkKpiKyjy82C_tb1dYxDlK7FgI-x1QEt4woGUntSMGR2ea4oFIxyocjlUzEoE"
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8090/innerMsg",
 					"protocol": "http",
@@ -37,10 +40,13 @@
 				"header": [
 					{
 						"key": "Authentication",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOltdLCJjcmVkZW50aWFsc05vbkV4cGlyZWQiOnRydWUsImVuYWJsZWQiOnRydWUsInBhc3N3b3JkIjoiJDJhJDEwJGpGTFNkdmt3dXFOODRHNnRyWW5sYmVwNEQxWS5pbS5CakFzZUEwUzlLZ1dsMWVUbHNCcWYuIiwidXNlcm5hbWUiOiJhZG1pbiJ9.R3W1leP2pR0Gj55oISp9yF7dX4K3B8V60zvLBoS2Ln83RjAedmx-sJEDqWb_zMKDlGOggEgIJAdlDX6NXLh85RByphjVAZ0yGkW_ceitENL-jL8U8lZbaRXHU9Dgt1rMG5wcRamAFBd3rSiVN_Seomb-Ht2ABjAUYBNf70PxI6s"
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6ImFkbWluIn1dLCJjcmVkZW50aWFsc05vbkV4cGlyZWQiOnRydWUsImVuYWJsZWQiOnRydWUsImV4cCI6MS42MzU5MDk0MzI4NzZFMTIsInBhc3N3b3JkIjoiJDJhJDEwJE8waVdvR2o2dXdJUFcyUU1HelZaZi5vREhzS2wwby5sZTJkeG0uQmJyLnphWkc3RDZHeDVtIiwidXNlcm5hbWUiOiJhZG1pbiJ9.g7G37qmbvqBfpISnnaM5hetY-uwsiRQtEiRpz5eEItU5CHx9qSnEeZ4nrT-QqHJ3nemn83-oRTuALrVBkgkjNYiv2n7YI_k0_OvBQnnFh1d8q4WU75AnD44BQ-Nbxw1tahPcwO3A-5bTWUutxRsSzRPNhLU2Tm-DWgtaZ2akTA0"
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8090/secret",
 					"protocol": "http",
@@ -60,7 +66,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8090/publicMsg",
 					"protocol": "http",
@@ -78,11 +87,25 @@
 		{
 			"name": "登录 并 获取token",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userName",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
-					"raw": "http://localhost:8090/jwtLogin?userName=admin&password=123456",
+					"raw": "http://localhost:8090/jwtLogin",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -90,16 +113,35 @@
 					"port": "8090",
 					"path": [
 						"jwtLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刷新令牌",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authentication",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6ImFkbWluIn1dLCJjcmVkZW50aWFsc05vbkV4cGlyZWQiOnRydWUsImVuYWJsZWQiOnRydWUsImV4cCI6MTYzNTkxMTQ0MjAzOSwicGFzc3dvcmQiOiIkMmEkMTAkLjc5LzZXS3FsdVRzUVRoc0Y1R2JhT2w1S1NsOUNVemJkQXBHZHdLWmE5SUd2Y0VZWHRxV2UiLCJ1c2VybmFtZSI6ImFkbWluIn0.Su03NKKTRRg5XUFJryiaA0W-12eeu9lDE8nCKMTUS2odaJiqoKcI5-R1ZrSTfgn8cMPCLcmG9b8SCrWMBmz0ZFb1oDtaYQzqUDfDyblP9jMtdtea7sMmLblyPAgs_A958jM4R9zCbpj_J39b00CX7kYDYcXdRQGpskxlxR17EzY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8090/refreshToken",
+					"protocol": "http",
+					"host": [
+						"localhost"
 					],
-					"query": [
-						{
-							"key": "userName",
-							"value": "admin"
-						},
-						{
-							"key": "password",
-							"value": "123456"
-						}
+					"port": "8090",
+					"path": [
+						"refreshToken"
 					]
 				}
 			},
