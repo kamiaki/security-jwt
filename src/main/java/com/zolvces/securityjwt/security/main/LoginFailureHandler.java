@@ -17,7 +17,7 @@ import java.io.IOException;
 //////////////////////////////////////////
 
 /**
- * @author niXueChao
+ * @author aki
  * @date 2019/4/3 23:05.
  */
 public class LoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {

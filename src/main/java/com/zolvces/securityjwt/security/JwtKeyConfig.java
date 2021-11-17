@@ -17,7 +17,7 @@ import org.springframework.security.jwt.crypto.sign.RsaVerifier;
 //////////////////////////////////////////
 
 /**
- * @author niXueChao
+ * @author aki
  * @date 2019/3/29 14:30.
  */
 @Configuration

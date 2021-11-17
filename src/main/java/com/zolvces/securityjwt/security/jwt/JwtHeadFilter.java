@@ -32,7 +32,7 @@ import java.io.IOException;
  * 3.若有token,但是校验失败,进行校验失败处理
  * 4.若token校验成功,通过从token中获取的用户信息生成一个凭证(Authentication),并放置到SecurityContext
  *
- * @author niXueChao
+ * @author aki
  * @date 2019/4/3 15:03.
  */
 public class JwtHeadFilter extends OncePerRequestFilter {

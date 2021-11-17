@@ -28,7 +28,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 //////////////////////////////////////////
 
 /**
- * @author niXueChao
+ * @author aki
  * @date 2019/4/2 22:58.
  */
 @Configuration

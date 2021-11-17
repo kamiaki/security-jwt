@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  * 1 设置登录的url,请求的方式,其实也就是定义这个过滤器要拦截哪个请求
  * 2 调用JwtAuthenticationProvider进行登录校验
  * 3 校验成功调用LoginSuccessHandler,校验失败调用LoginSuccessHandler
- * @author niXueChao
+ * @author aki
  * @date 2019/4/2 14:07.
  */
 public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {

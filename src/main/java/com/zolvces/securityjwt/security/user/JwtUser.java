@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 //////////////////////////////////////////
 
 /**
- * @author niXueChao
+ * @author aki
  * @date 2019/4/8 11:29.
  */
 public class JwtUser implements UserDetails {

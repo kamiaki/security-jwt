@@ -25,7 +25,7 @@ import java.util.List;
  * .authorizeRequests()
  * .antMatchers("/order").....
  *
- * @author niXueChao
+ * @author aki
  * @date 2019/4/10 10:33.
  */
 @Component("accessDecisionService")
@@ -44,20 +44,18 @@ public class AccessDecisionService {
 
     public boolean hasPermission(HttpServletRequest request, Authentication auth) {
         String requestURI = request.getRequestURI();
-        //匹配到url 并且 权限控制不为null, 才进行下一步拦截判断, 其余全部放行
-        boolean notIntercept = true;
+        //匹配到url并且权限控制不为null, 才进行下一步拦截判断, 其余全部放行.
+        boolean noHasOrNull = true;
         List<AuthorityParm> allAuthorities = authorityService.getAllAuthorities();
         for (AuthorityParm authorityParm : allAuthorities) {
             if (antPathMatcher.match(authorityParm.getUrl(), requestURI) && null != authorityParm.getAuthorities()) {
-                notIntercept = false;
+                noHasOrNull = false;
                 break;
             }
         }
-        if (notIntercept) return true;
+        if (noHasOrNull) return true;
         // 匿名身份验证令牌
-        if (auth instanceof AnonymousAuthenticationToken) {
-            return false;
-        }
+        if (auth instanceof AnonymousAuthenticationToken) return false;
         // 判断是否放行
         boolean authoritylUrl = dynamicUrl.getAuthoritylUrlByUrlName(requestURI, auth);
         return authoritylUrl;

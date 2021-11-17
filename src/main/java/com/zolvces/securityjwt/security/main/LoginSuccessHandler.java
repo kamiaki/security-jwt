@@ -21,7 +21,7 @@ import java.util.Map;
 //////////////////////////////////////////
 
 /**登录成功
- * @author niXueChao
+ * @author aki
  * @date 2019/3/12.
  */
 public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
@@ -34,7 +34,7 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         Gson gson = new Gson();
         String userJsonStr = JSON.toJSONString(authentication.getPrincipal());
         Map hashMap = gson.fromJson(userJsonStr, Map.class);
-        // 可以在这里改一些参数 时间重写一下 因为读出来的可能不对
+        // 可以在这里改一些参数 比如塞入时间，在查询用户的时候(JwtUserDetailServiceImpl)已经塞过了
 //        hashMap.put("exp", new DateTime().getMillis());
         String token = JwtHelper.encode(gson.toJson(hashMap), signer).getEncoded();
         //签发token

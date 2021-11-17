@@ -14,7 +14,7 @@ import java.util.Collection;
 //////////////////////////////////////////
 
 /**
- * @author niXueChao
+ * @author aki
  * @date 2019/4/2 14:35.
  */
 public class JwtLoginToken extends AbstractAuthenticationToken {

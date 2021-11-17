@@ -24,7 +24,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * 3.若用户校验失败则抛异常给JwtLoginFilter,JwtLoginFilter捕获异常调用登录失败的处理类(LoginFailureHandler)
  * 4.若用户校验成功,则生成一个已认证的凭证,也就是Authentication,对应本例的JwtLoginToken 并返回给JwtLoginFilter,JwtLoginFilter拿到凭证后调用登陆成功的处理类LoginSuccessHandler
  *
- * @author niXueChao
+ * @author aki
  * @date 2019/4/2 15:59.
  */
 
