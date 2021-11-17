@@ -12,7 +12,7 @@
 				"header": [
 					{
 						"key": "Authentication",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6ImFkbWluIn1dLCJjcmVkZW50aWFsc05vbkV4cGlyZWQiOnRydWUsImVuYWJsZWQiOnRydWUsImV4cCI6MTYzNTkxMDEzMjg0NiwicGFzc3dvcmQiOiIkMmEkMTAkLjc5LzZXS3FsdVRzUVRoc0Y1R2JhT2w1S1NsOUNVemJkQXBHZHdLWmE5SUd2Y0VZWHRxV2UiLCJ1c2VybmFtZSI6ImFkbWluIn0.Q2zdBk0QzF8oBOmHgqF0dq_TXrF3mylsOevSP8y3wrg3T3TPx7xnbodXpkp3jYG26kpFajY9EidHBWyh_jVchTYl0PS5fl5epKvlAJdqIPgHByzkKpiKyjy82C_tb1dYxDlK7FgI-x1QEt4woGUntSMGR2ea4oFIxyocjlUzEoE"
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6InVzZXIifV0sImNyZWRlbnRpYWxzTm9uRXhwaXJlZCI6dHJ1ZSwiZW5hYmxlZCI6dHJ1ZSwiZXhwIjoxLjYzNzExOTA5MTE5NUUxMiwicGFzc3dvcmQiOiIkMmEkMTAkZkJpR2hrcy9kbEFJYTdTUG9SQVN4ZW12U3VnQ0VRaFI5d000SThlZGZZT0NrYW9ldFZESUMiLCJ1c2VybmFtZSI6InVzZXIifQ.TihbegyQpPTC12xsKAh07nPOW9UTW4l3sXLdUY-JbWSIOgFCZA1V_MEjlCQN88M20J-uVAAdpgcUdcfv6KudKldEWFophwu-Vt0Fki7UOJ6mGVampN1oxL8SEKBI9z-dfLS1dqbatDz0mKQezX2azfJptfA1F9R3ApbbRs5pXH8"
 					}
 				],
 				"body": {
@@ -40,7 +40,7 @@
 				"header": [
 					{
 						"key": "Authentication",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6ImFkbWluIn1dLCJjcmVkZW50aWFsc05vbkV4cGlyZWQiOnRydWUsImVuYWJsZWQiOnRydWUsImV4cCI6MS42MzU5MDk0MzI4NzZFMTIsInBhc3N3b3JkIjoiJDJhJDEwJE8waVdvR2o2dXdJUFcyUU1HelZaZi5vREhzS2wwby5sZTJkeG0uQmJyLnphWkc3RDZHeDVtIiwidXNlcm5hbWUiOiJhZG1pbiJ9.g7G37qmbvqBfpISnnaM5hetY-uwsiRQtEiRpz5eEItU5CHx9qSnEeZ4nrT-QqHJ3nemn83-oRTuALrVBkgkjNYiv2n7YI_k0_OvBQnnFh1d8q4WU75AnD44BQ-Nbxw1tahPcwO3A-5bTWUutxRsSzRPNhLU2Tm-DWgtaZ2akTA0"
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6InVzZXIifV0sImNyZWRlbnRpYWxzTm9uRXhwaXJlZCI6dHJ1ZSwiZW5hYmxlZCI6dHJ1ZSwiZXhwIjoxLjYzNzExOTA5MTE5NUUxMiwicGFzc3dvcmQiOiIkMmEkMTAkZkJpR2hrcy9kbEFJYTdTUG9SQVN4ZW12U3VnQ0VRaFI5d000SThlZGZZT0NrYW9ldFZESUMiLCJ1c2VybmFtZSI6InVzZXIifQ.TihbegyQpPTC12xsKAh07nPOW9UTW4l3sXLdUY-JbWSIOgFCZA1V_MEjlCQN88M20J-uVAAdpgcUdcfv6KudKldEWFophwu-Vt0Fki7UOJ6mGVampN1oxL8SEKBI9z-dfLS1dqbatDz0mKQezX2azfJptfA1F9R3ApbbRs5pXH8"
 					}
 				],
 				"body": {
@@ -94,7 +94,7 @@
 					"formdata": [
 						{
 							"key": "userName",
-							"value": "admin",
+							"value": "user",
 							"type": "text"
 						},
 						{
@@ -125,7 +125,7 @@
 				"header": [
 					{
 						"key": "Authentication",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6ImFkbWluIn1dLCJjcmVkZW50aWFsc05vbkV4cGlyZWQiOnRydWUsImVuYWJsZWQiOnRydWUsImV4cCI6MTYzNTkxMTQ0MjAzOSwicGFzc3dvcmQiOiIkMmEkMTAkLjc5LzZXS3FsdVRzUVRoc0Y1R2JhT2w1S1NsOUNVemJkQXBHZHdLWmE5SUd2Y0VZWHRxV2UiLCJ1c2VybmFtZSI6ImFkbWluIn0.Su03NKKTRRg5XUFJryiaA0W-12eeu9lDE8nCKMTUS2odaJiqoKcI5-R1ZrSTfgn8cMPCLcmG9b8SCrWMBmz0ZFb1oDtaYQzqUDfDyblP9jMtdtea7sMmLblyPAgs_A958jM4R9zCbpj_J39b00CX7kYDYcXdRQGpskxlxR17EzY",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6ImFkbWluIn1dLCJjcmVkZW50aWFsc05vbkV4cGlyZWQiOnRydWUsImVuYWJsZWQiOnRydWUsImV4cCI6MTYzNTkxMDEzMjg0NiwicGFzc3dvcmQiOiIkMmEkMTAkLjc5LzZXS3FsdVRzUVRoc0Y1R2JhT2w1S1NsOUNVemJkQXBHZHdLWmE5SUd2Y0VZWHRxV2UiLCJ1c2VybmFtZSI6ImFkbWluIn0.Q2zdBk0QzF8oBOmHgqF0dq_TXrF3mylsOevSP8y3wrg3T3TPx7xnbodXpkp3jYG26kpFajY9EidHBWyh_jVchTYl0PS5fl5epKvlAJdqIPgHByzkKpiKyjy82C_tb1dYxDlK7FgI-x1QEt4woGUntSMGR2ea4oFIxyocjlUzEoE",
 						"type": "text"
 					}
 				],
@@ -142,6 +142,41 @@
 					"port": "8090",
 					"path": [
 						"refreshToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取权限  innerMsg 和 secret 测试用参数",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authentication",
+						"type": "text",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6InVzZXIifV0sImNyZWRlbnRpYWxzTm9uRXhwaXJlZCI6dHJ1ZSwiZW5hYmxlZCI6dHJ1ZSwiZXhwIjoxLjYzNzExOTA5MTE5NUUxMiwicGFzc3dvcmQiOiIkMmEkMTAkZkJpR2hrcy9kbEFJYTdTUG9SQVN4ZW12U3VnQ0VRaFI5d000SThlZGZZT0NrYW9ldFZESUMiLCJ1c2VybmFtZSI6InVzZXIifQ.TihbegyQpPTC12xsKAh07nPOW9UTW4l3sXLdUY-JbWSIOgFCZA1V_MEjlCQN88M20J-uVAAdpgcUdcfv6KudKldEWFophwu-Vt0Fki7UOJ6mGVampN1oxL8SEKBI9z-dfLS1dqbatDz0mKQezX2azfJptfA1F9R3ApbbRs5pXH8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8090/getAuthority?urlName=/secret ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"getAuthority"
+					],
+					"query": [
+						{
+							"key": "urlName",
+							"value": "/secret "
+						}
 					]
 				}
 			},
