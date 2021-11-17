@@ -1,5 +1,6 @@
-package com.zolvces.securityjwt.security.simple;
+package com.zolvces.securityjwt.security.user;
 
+import com.zolvces.securityjwt.security.user.JwtUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

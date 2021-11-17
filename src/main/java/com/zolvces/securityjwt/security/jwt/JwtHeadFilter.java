@@ -1,6 +1,7 @@
-package com.zolvces.securityjwt.security.simple;
+package com.zolvces.securityjwt.security.jwt;
 
 import com.alibaba.fastjson.JSON;
+import com.zolvces.securityjwt.security.user.JwtUser;
 import org.joda.time.DateTime;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.jwt.Jwt;
@@ -18,7 +19,7 @@ import java.io.IOException;
 //////////////////////////////////////////
 //////////////////////////////////////////
 /**
- * 验证token 报文头携带 Authentication
+ * 验证token 若token校验成功,通过从token中获取的用户信息生成一个凭证(Authentication),并放置到SecurityContext
  */
 //////////////////////////////////////////
 //////////////////////////////////////////
@@ -63,6 +64,7 @@ public class JwtHeadFilter extends OncePerRequestFilter {
             response.getWriter().write("token 失效" + e.getMessage());
             return;
         }
+        // 这里 通过从token中获取的用户信息生成一个凭证(Authentication),并放置到SecurityContext
         JwtLoginToken jwtLoginToken = new JwtLoginToken(user, "", user.getAuthorities());
         jwtLoginToken.setDetails(new WebAuthenticationDetails(request));
         SecurityContextHolder.getContext().setAuthentication(jwtLoginToken);

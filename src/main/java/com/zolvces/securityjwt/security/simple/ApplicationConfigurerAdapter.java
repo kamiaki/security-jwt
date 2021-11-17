@@ -1,5 +1,9 @@
 package com.zolvces.securityjwt.security.simple;
 
+import com.zolvces.securityjwt.security.jwt.JwtHeadFilter;
+import com.zolvces.securityjwt.security.user.JwtAuthenticationProvider;
+import com.zolvces.securityjwt.security.user.JwtLoginFilter;
+import com.zolvces.securityjwt.security.user.JwtUserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.jwt.crypto.sign.RsaSigner;
 import org.springframework.security.jwt.crypto.sign.RsaVerifier;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 //////////////////////////////////////////
@@ -41,6 +46,23 @@ public class ApplicationConfigurerAdapter extends WebSecurityConfigurerAdapter {
     @Qualifier(value = "myPassWordEncoder")
     private PasswordEncoder passwordEncoder;
 
+    @Bean(name = "myAuthenticationEntryPoint")
+    public AuthenticationEntryPoint getAuthenticationEntryPoint() {
+        AuthenticationEntryPoint tmp = (request, response, authException) -> {
+            response.setContentType("application/json;charset=UTF-8");
+            response.getWriter().write("需要登陆!");
+        };
+        return tmp;
+    }
+
+    private AuthenticationEntryPoint authenticationEntryPoint;
+
+    @Autowired
+    @Qualifier(value = "myAuthenticationEntryPoint")
+    public void setAuthenticationEntryPoint(AuthenticationEntryPoint authenticationEntryPoint) {
+        this.authenticationEntryPoint = authenticationEntryPoint;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //登录过滤器
@@ -70,10 +92,7 @@ public class ApplicationConfigurerAdapter extends WebSecurityConfigurerAdapter {
                 //会进行判断SecurityContext是否有凭证(Authentication),若前面的过滤器都没有提供凭证,
                 //匿名过滤器会给SecurityContext提供一个匿名的凭证(可以理解为用户名和权限为anonymous的Authentication),
                 //这也是JwtHeadFilter发现请求头中没有jwtToken不作处理而直接进入下一个过滤器的原因
-                .exceptionHandling().authenticationEntryPoint((request, response, authException) -> {
-            response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write("需要登陆");
-        })
+                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
 
                 //拒绝访问处理,当已登录,但权限不足时调用
                 //抛出AccessDeniedException异常时且当不是匿名用户时调用
@@ -83,7 +102,7 @@ public class ApplicationConfigurerAdapter extends WebSecurityConfigurerAdapter {
                 })
                 .and()
                 .authorizeRequests()
-                // 过滤器会比权限先执行
+                // 此动态url过滤器会比权限先执行
                 .anyRequest().access("@accessDecisionService.hasPermission(request , authentication)")
                 .and()
                 //将授权提供者注册到授权管理器中(AuthenticationManager)

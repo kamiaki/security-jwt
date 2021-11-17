@@ -1,5 +1,6 @@
-package com.zolvces.securityjwt.security.simple;
+package com.zolvces.securityjwt.security.user;
 
+import com.zolvces.securityjwt.security.jwt.JwtLoginToken;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -31,7 +32,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
     /**
      * 设置登录的url,请求的方式,其实也就是定义这个过滤器要拦截哪个请求
      */
-    JwtLoginFilter() {
+    public JwtLoginFilter() {
         super(new AntPathRequestMatcher("/jwtLogin", "POST"));
     }
 

@@ -1,5 +1,6 @@
-package com.zolvces.securityjwt.security.simple;
+package com.zolvces.securityjwt.security.user;
 
+import com.zolvces.securityjwt.security.jwt.JwtLoginToken;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;

@@ -1,4 +1,4 @@
-package com.zolvces.securityjwt.security.simple;
+package com.zolvces.securityjwt.security.jwt;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;

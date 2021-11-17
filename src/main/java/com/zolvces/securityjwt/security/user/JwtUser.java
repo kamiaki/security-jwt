@@ -1,4 +1,4 @@
-package com.zolvces.securityjwt.security.simple;
+package com.zolvces.securityjwt.security.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

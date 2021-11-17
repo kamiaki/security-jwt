@@ -1,5 +1,7 @@
-package com.zolvces.securityjwt.security.simple;
+package com.zolvces.securityjwt.security.url;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,17 +36,26 @@ import java.util.List;
  */
 @Component("accessDecisionService")
 public class AccessDecisionService {
-
-    private AntPathMatcher antPathMatcher = new AntPathMatcher();
+    // 匹配方法 防止重复调用
+    private final AntPathMatcher antPathMatcher = new AntPathMatcher();
+    // 获取权限方法
+    @Autowired
+    @Qualifier(value = "staticAuthority")
+    private AuthorityService authorityService;
 
     public boolean hasPermission(HttpServletRequest request, Authentication auth) {
 
-        //不需要登录也能访问的(permitAll)
-        for (String url : Arrays.asList("/publicMsg")) {
-            if (antPathMatcher.match(url, request.getRequestURI())) {
-                return true;
+        //匹配到url 并且 权限控制不为null, 才进行下一步拦截判断, 其余全部放行
+        boolean noHas = true;
+        List<AuthorityParm> allAuthorities = authorityService.getAllAuthorities();
+        for (AuthorityParm authorityParm : allAuthorities){
+            if (antPathMatcher.match(authorityParm.getUrl(), request.getRequestURI()) && null != authorityParm.getAuthorities()) {
+                noHas = false;
+                break;
             }
         }
+        if (noHas) return true;
+
 
         if (auth instanceof AnonymousAuthenticationToken) {
             return false;
