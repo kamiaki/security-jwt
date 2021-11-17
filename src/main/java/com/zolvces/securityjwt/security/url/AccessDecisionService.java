@@ -43,11 +43,12 @@ public class AccessDecisionService {
     private DynamicUrl dynamicUrl;
 
     public boolean hasPermission(HttpServletRequest request, Authentication auth) {
+        String requestURI = request.getRequestURI();
         //匹配到url 并且 权限控制不为null, 才进行下一步拦截判断, 其余全部放行
         boolean notIntercept = true;
         List<AuthorityParm> allAuthorities = authorityService.getAllAuthorities();
         for (AuthorityParm authorityParm : allAuthorities) {
-            if (antPathMatcher.match(authorityParm.getUrl(), request.getRequestURI()) && null != authorityParm.getAuthorities()) {
+            if (antPathMatcher.match(authorityParm.getUrl(), requestURI) && null != authorityParm.getAuthorities()) {
                 notIntercept = false;
                 break;
             }
@@ -58,7 +59,7 @@ public class AccessDecisionService {
             return false;
         }
         // 判断是否放行
-        boolean authoritylUrl = dynamicUrl.getAuthoritylUrl(request, auth);
+        boolean authoritylUrl = dynamicUrl.getAuthoritylUrlByUrlName(requestURI, auth);
         return authoritylUrl;
     }
 }
