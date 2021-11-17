@@ -1,4 +1,4 @@
-package com.zolvces.securityjwt.security.simple;
+package com.zolvces.securityjwt.security.main;
 
 import com.zolvces.securityjwt.security.jwt.JwtHeadFilter;
 import com.zolvces.securityjwt.security.user.JwtAuthenticationProvider;

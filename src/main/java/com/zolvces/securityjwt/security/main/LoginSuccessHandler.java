@@ -1,8 +1,7 @@
-package com.zolvces.securityjwt.security.simple;
+package com.zolvces.securityjwt.security.main;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
-import org.joda.time.DateTime;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.jwt.JwtHelper;
 import org.springframework.security.jwt.crypto.sign.RsaSigner;
@@ -11,8 +10,6 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationSu
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 //////////////////////////////////////////

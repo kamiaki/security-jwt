@@ -1,4 +1,4 @@
-package com.zolvces.securityjwt.security.simple;
+package com.zolvces.securityjwt.security.main;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
