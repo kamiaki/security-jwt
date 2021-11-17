@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 import com.zolvces.securityjwt.security.url.AuthorityParm;
 import com.zolvces.securityjwt.security.url.AuthorityService;
+import com.zolvces.securityjwt.security.url.DynamicUrl;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -77,13 +78,9 @@ public class TestController {
     }
 
 
-    // 匹配方法 防止重复调用
-    private final AntPathMatcher antPathMatcher = new AntPathMatcher();
-    // 获取权限方法
     @Autowired
-    @Qualifier(value = "staticAuthority")
-    private AuthorityService authorityService;
-
+    @Qualifier(value = "myDynamicUrl")
+    private DynamicUrl dynamicUrl;
     /**
      * 获取权限信息, url不存在就有权限，存在判断有无权限
      *
@@ -94,44 +91,11 @@ public class TestController {
      */
     @RequestMapping(value = "getAuthority")
     public String getAuthority(HttpServletResponse response, Authentication authentication, String urlName) {
-        // 判断url是否存在
-        boolean existUrl = false;
-        // 遍历所有url权限配置项
-        for (AuthorityParm authorityParm : authorityService.getAllAuthorities()) {
-            //找url一致的权限配置项
-            if (antPathMatcher.match(authorityParm.getUrl(), urlName)) {
-                // url存在
-                existUrl = true;
-                // null表示不做权限控制,直接返回通过
-                if (null == authorityParm.getAuthorities()) {
-                    response.setStatus(HttpStatus.OK.value());
-                    return "success";
-                } else {
-                    // 这个url需要权限, 如果用户未登录, 就返回没有权限
-                    if (null == authentication || !authentication.isAuthenticated()) {
-                        response.setStatus(HttpStatus.FORBIDDEN.value());
-                        return "403";
-                    }
-                }
-                //获取配置权限
-                for (String configAuthority : authorityParm.getAuthorities()) {
-                    //获取用户权限
-                    for (GrantedAuthority userAuthority : authentication.getAuthorities()) {
-                        //比对配置和用户权限
-                        if (configAuthority.equals(userAuthority.getAuthority())) {
-                            //返回路由成功
-                            response.setStatus(HttpStatus.OK.value());
-                            return "success";
-                        }
-                    }
-                }
-            }
-        }
-        // 存在url匹配失败，不存在匹配成功
-        if (!existUrl) {
+        boolean isPass = dynamicUrl.getAuthoritylUrlByUrlName(urlName, authentication);
+        if (isPass) {
             response.setStatus(HttpStatus.OK.value());
             return "success";
-        } else {
+        }else{
             response.setStatus(HttpStatus.FORBIDDEN.value());
             return "403";
         }
