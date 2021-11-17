@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.jwt.crypto.sign.RsaSigner;
 import org.springframework.security.jwt.crypto.sign.RsaVerifier;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 //////////////////////////////////////////
@@ -46,21 +47,18 @@ public class ApplicationConfigurerAdapter extends WebSecurityConfigurerAdapter {
     @Qualifier(value = "myPassWordEncoder")
     private PasswordEncoder passwordEncoder;
 
-    @Bean(name = "myAuthenticationEntryPoint")
-    public AuthenticationEntryPoint getAuthenticationEntryPoint() {
-        AuthenticationEntryPoint tmp = (request, response, authException) -> {
-            response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write("需要登陆!");
-        };
-        return tmp;
-    }
-
     private AuthenticationEntryPoint authenticationEntryPoint;
-
     @Autowired
     @Qualifier(value = "myAuthenticationEntryPoint")
     public void setAuthenticationEntryPoint(AuthenticationEntryPoint authenticationEntryPoint) {
         this.authenticationEntryPoint = authenticationEntryPoint;
+    }
+
+    private AccessDeniedHandler accessDeniedHandler;
+    @Autowired
+    @Qualifier(value = "myAccessDeniedHandler")
+    public void setAccessDeniedHandler(AccessDeniedHandler accessDeniedHandler) {
+        this.accessDeniedHandler = accessDeniedHandler;
     }
 
     @Override
@@ -93,13 +91,9 @@ public class ApplicationConfigurerAdapter extends WebSecurityConfigurerAdapter {
                 //匿名过滤器会给SecurityContext提供一个匿名的凭证(可以理解为用户名和权限为anonymous的Authentication),
                 //这也是JwtHeadFilter发现请求头中没有jwtToken不作处理而直接进入下一个过滤器的原因
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
-
                 //拒绝访问处理,当已登录,但权限不足时调用
                 //抛出AccessDeniedException异常时且当不是匿名用户时调用
-                .accessDeniedHandler((request, response, accessDeniedException) -> {
-                    response.setContentType("application/json;charset=UTF-8");
-                    response.getWriter().write("没有权限");
-                })
+                .accessDeniedHandler(accessDeniedHandler)
                 .and()
                 .authorizeRequests()
                 // 此动态url过滤器会比权限先执行
